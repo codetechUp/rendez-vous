@@ -91,3 +91,8 @@ li:hover {
 a:hover {
     color: rgba(19, 21, 22, 0.3);
 }
+
+form.centre {
+    position: relative;
+    top: 45%;
+}

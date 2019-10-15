@@ -1,5 +1,6 @@
 <?php
 session_start();
+require 'm/db.php';
 ?>
 <?php if($_SESSION): ?>
 <!DOCTYPE html>

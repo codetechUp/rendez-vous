@@ -1,35 +1,36 @@
 <?php
-class Patient{
+class Patient extends db{
 
 
-  public static function connectDb(){
-    return  new  pdo("mysql:host=localhost;dbname=rv","webroot","192797") ;
-  }
-  
-    public   function dump($r){
-        echo "<pre>";
-        var_dump($r);
-        echo "<pre>";
-        
-    }
+ 
 
   public function addPatient($data){
     
     $sql="INSERT INTO patients(matricule,prenom_patient,nom_patient,sexe,email,pays,adresse,telephone) VALUES(?,?,?,?,?,?,?,?)";
-    $req=Patient::connectDb()->prepare($sql);
+    $req=$this->connectDb()->prepare($sql);
     $req->execute($data);
 
     }
+    public function findFonction(){
+
+      $pdo = new pdo("mysql:host=localhost;dbname=rendezVous","webroot","192797");
+      $req=$pdo->query("SELECT * FROM fonctions ");
+      $resultats=$req->fetchAll();
+      return $resultats;
+      
+      }
+  
+    
     public function getIdByMat($mat){
     
       $sql="SELECT id_patient FROM patients WHERE matricule=?";
-      $req=Patient::connectDb()->prepare($sql);
+      $req=$this->connectDb()->prepare($sql);
       $req->execute(array($mat));
       $id=$req->fetch(PDO::FETCH_ASSOC);
       return $id["id_patient"];
       }
-    public static function setMatricule(){
-            $req=Patient::connectDb()->query('SELECT matricule FROM patients ORDER BY `matricule` DESC  LIMIT 1');
+    public function setMatricule(){
+            $req=$this->connectDb()->query('SELECT matricule FROM patients ORDER BY `matricule` DESC  LIMIT 1');
             $a=$req->fetch(PDO::FETCH_ASSOC);
             if (!empty($a)) {
             $elmt=explode("-",$a["matricule"]);

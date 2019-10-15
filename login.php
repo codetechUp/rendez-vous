@@ -1,6 +1,22 @@
+<?php
+require("m/db.php");
+    require("m/secretaire.php");
+    require("m/Doctor.php");
+    
+        if($_POST){
+            if($_POST["role"]=="secretaire"){
+                $secret=new Secretaire();
+                $res=$secret->login($_POST["username"]);
+                header("location:secret.php");
+            }
+            if($_POST["role"]=="medecin"){
+                $secret=new Doctor();
+                $res=$secret->loginDoc($_POST["username"]);
+                header("location:medecin.php");
+            }
+        }?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +42,7 @@
             </div>
             <fieldset>
                 <legend>Role</legend>
-                <input type="radio" name="role" value="secretaire">
+                <input type="radio" name="role"  value="secretaire" checked>
                 <label >Secretaire</label>
                 <input type="radio" name="role" value="medecin">
                 <label >Medecin</label>
@@ -36,15 +52,9 @@
             <button class="btn btn-primary mt-4" type="submit">se connecter</button>
         </form>
     </div>
+   
+
 
 </body>
 
 </html>
-<?php
-require("m/secretaire.php");
-    if($_POST){
-        $secret=new Secretaire();
-        $res=$secret->login($_POST["username"]);
-        header("location:secret.php");
-    }
-?>

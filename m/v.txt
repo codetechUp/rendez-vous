@@ -1,0 +1,25 @@
+$sql="SELECT * FROM rv WHERE  date_rv=?";
+          $req=rv::connectDb()->prepare($sql);
+          $res=$req->execute(array($date));
+          $res=$req->fetchAll();
+              if($res!=NULL){
+                $sql="SELECT id_heure FROM rv WHERE  date_rv=?";
+                $req=rv::connectDb()->prepare($sql);
+                $req->execute(array($date));
+                $res1=$req->fetchAll();
+                $sql="SELECT id_heure,heureRv FROM heureRv ";
+                $req=rv::connectDb()->query($sql);
+                $res2=$req->fetchAll();
+                return (array_diff_key($res2,$res1));
+                
+              }else{
+                 $sql="UPDATE rv SET date_rv=? WHERE id_rv=?";
+                 $req=rv::connectDb()->prepare($sql);
+                 $req->execute(array($date,$id));
+                 $sql="SELECT id_heure,heureRv FROM heureRv ";
+                 $req=rv::connectDb()->query($sql);
+                 $res2=$req->fetchAll();
+                 return $res2;
+              }
+               
+                //return

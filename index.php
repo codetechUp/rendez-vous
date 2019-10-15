@@ -1,9 +1,11 @@
 <?php 
+require ('m/db.php');
 require("m/classe.php");
 require("m/Patient.php");
 //Attribution automatique du matricule;
-$mat=Patient::setMatricule();
-$resultats=findFonction();
+$p=new Patient();
+$mat=$p->setMatricule();
+$resultats=$p->findFonction();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -40,7 +42,7 @@ $resultats=findFonction();
             </div>
             <fieldset>
                 <legend>Sexe</legend>
-                <input type="radio" name="sexe" value="Mr">
+                <input type="radio"  name="sexe" value="Mr">
                 <label >Masculin</label>
                 <input type="radio" name="sexe" value="Mme">
                 <label >Feminin</label>

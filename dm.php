@@ -1,7 +1,7 @@
 <?php
 
 session_start()  ;
-
+require ('m/db.php');
 require("m/Patient.php");
 require("m/rv.php");
 $mat=$_GET['m'];
