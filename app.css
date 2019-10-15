@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.body {
+    background-image: url("body.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div.notif {
+    position: relative!important;
+    top: 300px;
+    left: 35%;
+    right: 35%;
+}
+
+.patient {
+    background-image: url("patient.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login {
+    position: relative;
+    top: 100px;
+    padding: 25px;
+    background-color: rgba(235, 233, 233, 0.7);
+    color: rgb(139, 12, 12);
+}
+
+#profil {
+    height: 300px;
+    border-radius: 50%;
+    position: relative;
+    left: 370px;
+}
+
+button {
+    left: 420px;
+}
+
+.forme {
+    background: rgba(234, 235, 240, 0.4);
+    position: relative;
+}
+
+div.no {
+    position: absolute;
+    top: 300px;
+    left: 28%;
+    right: 28%;
+    z-index: 2000;
+    color: white;
+    border-radius: 20px;
+}
+
+.no button,
+.no a {
+    margin-left: 37%;
+}
+
+.no p {
+    padding: 7px;
+    margin: 30px;
+}
+
+.ouss {
+    position: absolute;
+    top: -30000px;
+}
+
+.nav {
+    color: white;
+}
+
+ul {
+    margin: 0;
+}
+
+li {
+    cursor: pointer;
+}
+
+li:hover {
+    background: rgba(221, 225, 228);
+    padding-left: 10px;
+}
+
+a:hover {
+    color: rgba(19, 21, 22, 0.3);
+}
